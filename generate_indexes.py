@@ -347,7 +347,7 @@ function search() {
 }
 $(window).on('content loaded', function(){
   $('search').on('keyup', search);
-});'''
+});console.log('hello world');'''
 
 def get_icon_class(name, is_dir):
     if is_dir:
