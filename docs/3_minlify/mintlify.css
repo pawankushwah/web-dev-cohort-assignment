@@ -1,3 +1,7 @@
+:root {
+    --max-width: 1056px;
+}
+
 @keyframes toBlur {
     1% {
         backdrop-filter: blur(15px);
@@ -23,7 +27,7 @@
 }
 
 body>* {
-    max-width: 1056px;
+    max-width: var(--max-width);
     margin: auto;
 }
 
@@ -42,7 +46,7 @@ nav {
 nav>div {
     display: flex;
     align-items: center;
-    max-width: 1056px;
+    max-width: var(--max-width);
     column-gap: 32px;
     padding: 16px 24px;
     color: #fff;
@@ -220,9 +224,12 @@ label>input {
 }
 
 .carousal-card .img-wrapper img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .carousal-card .img-wrapper svg {
@@ -235,17 +242,37 @@ label>input {
     color: var(--color-text-invert);
 }
 
-.carousal-card:hover .read_story {
+.read_story {
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-brand);
+}
+
+.read_story:hover {
+    color: var(--color-brand);
+}
+
+.read_story:hover svg {
+    transition: all 0.2s ease-in-out;
+    color: var(--color-brand);
+    margin-left: 3px;
+}
+
+.carousal-card:hover .read_story,
+.read_story:hover svg {
     cursor: pointer;
     color: var(--color-brand);
 }
 
 .carousal-card>p.gray {
-    line-clamp: 2;
-    text-overflow: ellipsis;
-    overflow: ellipsis;
-    height: 60px;
+    overflow: hidden;
+    height: 70px;
     margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
 }
 
 .carousal-card:hover .read_story span:first-child {
@@ -255,4 +282,27 @@ label>input {
 
 #gtsign {
     transform: rotate(-90deg);
+}
+
+#carousal-cards-container {
+    scrollbar-width: none;
+    display: flex;
+    gap: 24px;
+    width: 99vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 0 calc((105vw - var(--max-width))/2);
+    overflow-x: scroll;
+}
+
+#carousal-cards-container .carousal-card {
+    flex: 0 0 auto;
+}
+
+#carousal-cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousal-btn {
+    filter: invert(100%);
 }

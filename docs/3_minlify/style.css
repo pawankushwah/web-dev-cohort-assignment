@@ -49,7 +49,30 @@ body {
     text-decoration: none;
 }
 
-.white-btn:hover {
+.white-btn-2 {
+    background-color: var(--color-background-invert);
+    color: var(--color-text-invert);
+    padding: 7px 24px;
+    border-radius: var(--rounded-full);
+    border: 1px solid var(--color-background-soft);
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.black-btn {
+    background-color: var(--color-background-main);
+    color: var(--color-text-main);
+    padding: 7px 24px;
+    border-radius: var(--rounded-full);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.white-btn:hover,
+.white-btn-2:hover {
     background-color: var(--white-btn-hover-bg);
 }
 
@@ -191,6 +214,14 @@ input::placeholder {
     border: 1px solid var(--color-border-soft);
 }
 
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.p-2-5 {
+    padding: 10px;
+}
+
 .p-6 {
     padding: 24px;
 }
@@ -212,6 +243,13 @@ input::placeholder {
     flex-direction: column;
     gap: 24px;
     margin-bottom: 24px;
+}
+
+.flex-gap-8 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
 }
 
 .flex-gap-6-row {
@@ -239,4 +277,8 @@ input::placeholder {
 
 .grayscale {
     filter: grayscale(100%);
+}
+
+.sr-only {
+    display: none;
 }
