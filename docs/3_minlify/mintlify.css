@@ -1,175 +1,258 @@
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --white-btn-hover-bg: oklab(0.999998 -0.00000980496 0.0000234246 / 0.85);
-    --transparent-btn-bg: oklab(100 0 0 / 0.05);
-    --p4: 4px 12px;
-    --p4-5: 4.5px 12px;
-    --p4all: 4px;
-    --p2-8: 2px 8px;
-    --rounded-full: 100px;
+@keyframes toBlur {
+    1% {
+        backdrop-filter: blur(15px);
+    }
 
-    --color-background-main: lab(2.42579% -.165291 -.470081);
-    --color-background-invert: lab(100% 0 0);
-    --color-text-main: lab(100% 0 0);
-    --color-text-invert: lab(2.42579% -.165291 -.470081);
-    --color-text-soft: lab(100% 0 0/.7);
-    --color-text-sub: lab(100% 0 0/.6);
-    --color-border-sub: lab(100% 0 0/.07);
-    --color-background-soft: lab(100% 0 0/.05);
-    --color-border-surface: lab(100% 0 0/.05);
-    --color-muted: lab(100% 0 0/.5);
-    --color-border-soft: lab(100% 0 0/.15);
-    --color-brand: lab(79.9844% -59.6292 22.5096);
-    --color-brand-light: lab(51.3415% -41.5657 15.3527);
-    --color-border-solid: lab(100% 0 0);
-    --color-muted-invert: lab(2.42579% -.165291 -.470081/.5);
+    100% {
+        backdrop-filter: blur(15px);
+    }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+.top-section {
+    padding-top: 100px;
+    background: url(images/bg-dark.svg) black;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    -webkit-mask-image: linear-gradient(black 80%, transparent 100%);
+    mask-image: linear-gradient(black 80%, transparent 100%);
+    z-index: 10;
 }
 
-body {
-    background-color: var(--color-background-main);
-    color: var(--color-text-main);
+body>* {
+    max-width: 1056px;
+    margin: auto;
 }
 
-.white-btn {
-    background-color: var(--color-background-invert);
-    color: var(--color-text-invert);
-    padding: var(--p4-5);
-    border-radius: var(--rounded-full);
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    text-decoration: none;
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    animation-name: toBlur;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    animation-timeline: scroll(root);
+    max-width: 100%;
+    width: 100%;
 }
 
-.white-btn:hover {
-    background-color: var(--white-btn-hover-bg);
+nav>div {
+    display: flex;
+    align-items: center;
+    max-width: 1056px;
+    column-gap: 32px;
+    padding: 16px 24px;
+    color: #fff;
+    margin: auto;
 }
 
-.transparent-btn {
-    border: none;
-    cursor: pointer;
-    padding: var(--p4-5);
-    font-weight: 500;
-    border-radius: var(--rounded-full);
-    background-color: var(--color-background-soft);
-    color: var(--color-text-main);
-    text-decoration: none;
+.nav-left {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-.transparent-btn:hover {
-    background-color: var(--color-background-soft);
+.nav-logo svg {
+    height: 24px;
+    width: fit-content;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
-a {
-    text-decoration: none;
-    padding: var(--p4);
-    color: var(--color-text-main);
-    font-weight: 500;
-    border-radius: var(--rounded-full);
+.hero {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
 }
 
-a:hover {
-    background-color: var(--color-background-soft);
+.hero-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
 }
 
-.bg-white-blur {
-    backdrop-filter: blur(12px);
-    background-color: var(--color-background-soft);
-    padding: var(--p4all);
-    border-radius: var(--rounded-full);
+.bg-white-blur svg {
+    margin-right: 5px;
 }
 
-.bg-white-blur:hover {
-    background-color: var(--color-border-sub);
+.hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 42px;
+    width: 360px;
+    margin: auto;
+    border: 1px solid var(--color-border-soft);
 }
 
-.color-brand {
-    color: var(--color-brand);
-}
-
-.color-brand-hover {
-    color: var(--color-brand-light);
-}
-
-.text-brand-geist,
-.text-white-geist {
-    color: var(--color-brand);
-    font-family: 'Geist', sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.6px;
-    line-height: 18px;
-}
-
-.text-white-geist {
-    color: var(--color-white);
-}
-
-.bg-brand {
-    background-color: var(--color-brand);
-}
-
-.bg-brand:hover {
-    background-color: var(--color-brand-light);
-}
-
-.bg-brand-light {
-    background-color: var(--color-brand-light);
-}
-
-.text-white {
-    color: var(--color-white);
-}
-
-h1 {
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 70px;
-}
-
-h2 {
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 44px;
-}
-
-h3 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 31px;
-}
-
-p {
+.hero-cta * {
     font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    height: 100%;
 }
 
-p.gray {
-    color: var(--color-text-soft);
-    line-height: 27px;
+.hero-img {
+    border-radius: 24px;
+    border: 1px solid var(--color-border-soft);
+    overflow: hidden;
+    margin-top: 96px;
 }
 
-p.expanded {
-    font-size: 18px;
-    line-height: 27px;
+.dark-dash {
+    width: fit-content;
+    margin: auto;
 }
 
-.tag {
-    background-color: var(--color-brand-light);
-    color: var(--color-white);
-    padding: var(--p2-8);
-    border-radius: var(--rounded-full);
-    font-weight: 500;
-    border: none;
-    text-decoration: none;
+.partners {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+    padding: 72px 32px 144px 32px;
+    width: 100%;
+}
+
+.partners .logowrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.partners svg {
+    height: 70px;
+}
+
+.ai-section {
+    padding: 36px;
+    text-align: center;
+}
+
+.big-card {
+    background: url(images/anthropic.svg);
+    height: 518px;
+    padding: 64px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 24px;
+    overflow: hidden;
+    inset: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.big-card:hover {
+    opacity: 0.8;
+}
+
+.big-card:hover #gtsign {
+    transition: all 0.2s ease-in-out;
+    margin-left: 3px;
+}
+
+#customer_story_company>div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+    height: 60px;
+    padding: 20px;
+}
+
+#customer_story_company svg {
+    height: 64px;
+}
+
+label:has(input:checked) {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+label:has(input:not(:checked)) {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+label {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+label>input {
+    display: none;
+}
+
+.carousal-card {
+    width: 400px;
+    overflow: hidden;
+}
+
+.carousal-card:hover {
+    cursor: pointer;
+}
+
+.carousal-card .img-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 290px;
+    width: 100%;
+    position: relative;
+}
+
+.carousal-card:hover .img-wrapper {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.8;
+}
+
+.carousal-card .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousal-card .img-wrapper svg {
+    width: 230px;
+    height: 45px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-text-invert);
+}
+
+.carousal-card:hover .read_story {
+    cursor: pointer;
+    color: var(--color-brand);
+}
+
+.carousal-card>p.gray {
+    line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: ellipsis;
+    height: 60px;
+    margin-bottom: 24px;
+}
+
+.carousal-card:hover .read_story span:first-child {
+    transition: all 0.2s ease-in-out;
+    margin-right: 3px;
+}
+
+#gtsign {
+    transform: rotate(-90deg);
 }
