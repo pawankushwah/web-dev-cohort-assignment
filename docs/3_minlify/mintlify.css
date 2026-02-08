@@ -306,3 +306,113 @@ label>input {
 .carousal-btn {
     filter: invert(100%);
 }
+
+.last-cta-btn {
+    border-right: 1px solid var(--color-border-surface);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    width: 430px;
+}
+
+.last-cta-btn:last-child {
+    border-right: none;
+}
+
+.last-cta-btn div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.last-cta-btn h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.last-cta-btn p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.last-cta-btn .read_story {
+    font-size: 14px;
+}
+
+footer {
+    border-top: 0.2px solid var(--color-background-main);
+    max-width: 100%;
+    width: 100%;
+    background-color: var(--color-background-soft);
+}
+
+footer>div {
+    border-top: 1px solid var(--color-border-surface);
+}
+
+footer>div>div {
+    border: 1px solid var(--color-border-surface);
+    border-top: none;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: auto;
+}
+
+footer .links {
+    padding: 48px 32px 72px 32px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+footer .links h3 {
+    padding: 6px 12px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.64;
+    color: var(--color-muted);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+footer .links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+footer .links li {
+    list-style: none;
+}
+
+footer .links a {
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#theme_switcher {
+    background-color: var(--color-background-soft);
+    display: flex;
+    gap: 5x;
+    padding: 2px;
+    border-radius: 12px;
+}
+
+#theme_switcher label {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+}
+
+#theme_switcher label:has(input:checked) {
+    background-color: var(--color-background-main);
+}
